@@ -1,0 +1,1 @@
+Testing mergeable rules with renovate
