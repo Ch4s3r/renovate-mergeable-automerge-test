@@ -6,7 +6,7 @@ mergeable:
       - do: commit
         message:
           regex: '"renovate[bot]" <29139614+renovate[bot]@users.noreply.github.com>'
-          message_type: commiter_email
+          message_type: committer_email
     pass:
       - do: merge
         merge_method: merge
