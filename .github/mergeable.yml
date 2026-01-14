@@ -1,8 +1,9 @@
 ---
-version: 1
-rules:
-  - condition: >
-      commits == 1 &&
-      commits[0].commit.author.email ~= "mergeable@test"
-    action: 'merge when ready'
-    name: 'Single commit with mergeable@test email'
+mergeable:
+  version: 1
+  rules:
+    - condition: >
+        commits == 1 &&
+        commits[0].commit.author.email ~= "mergeable@test"
+      action: 'merge when ready'
+      name: 'Single commit with mergeable@test email'
