@@ -1,9 +1,18 @@
----
+version: 2
 mergeable:
-  version: 1
-  rules:
-    - condition: >
-        commits == 1 &&
-        commits[0].commit.author.email == "mergeable@test"
-      action: 'merge when ready'
-      name: 'Single commit with mergeable@test email'
+  - when: pull_request.opened, pull_request.synchronize, status.success, check_suite.completed
+    name: 'Single commit with mergeable@test email'
+    filter:
+      - do: payload
+        pull_request:
+          commits:
+            must_include:
+              regex: '^1$'
+    validate:
+      - do: commit
+        message_type: author_email
+        must_include:
+          regex: '^mergeable@test$'
+    pass:
+      - do: merge
+        merge_method: merge
