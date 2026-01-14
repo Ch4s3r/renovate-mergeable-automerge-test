@@ -1,12 +1,12 @@
 version: 2
 mergeable:
   - when: pull_request.*
-    name: 'Commits with renovate[bot] email'
+    name: 'Single commit with mergeable@test email'
     validate:
       - do: commit
         message:
           regex: '.*renovate.*'
-          message_type: committer_email
+          message_type: author_email
     pass:
       - do: merge
         merge_method: merge
