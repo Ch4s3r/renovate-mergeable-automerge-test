@@ -11,8 +11,8 @@ mergeable:
     validate:
       - do: commit
         message:
-          message_type: author_email
           regex: '^mergeable@test$'
+          message_type: author_email
     pass:
       - do: merge
         merge_method: merge
