@@ -5,7 +5,7 @@ mergeable:
     validate:
       - do: commit
         message:
-          regex: '.*renovate.*'
+          regex: '^mergeable@test$'
           message_type: author_email
     pass:
       - do: merge
