@@ -10,8 +10,8 @@ mergeable:
               regex: '^1$'
     validate:
       - do: commit
-        message_type: author_email
-        must_include:
+        message:
+          message_type: author_email
           regex: '^mergeable@test$'
     pass:
       - do: merge
