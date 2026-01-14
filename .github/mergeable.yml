@@ -1,12 +1,18 @@
 version: 2
 mergeable:
-  - when: pull_request.*
-    name: 'Single commit with mergeable@test email'
+  - when: pull_request.*, pull_request_review.*
+    name: 'Draft check'
     validate:
-      - do: commit
-        message:
-          regex: '^mergeable@test$'
-          message_type: author_email
+      - do: payload
+        pull_request:
+          draft:
+            boolean:
+              match: false
     pass:
-      - do: merge
-        merge_method: merge
+      - do: comment
+        payload:
+          body: This PR is NOT a draft!
+    fail:
+      - do: comment
+        payload:
+          body: This PR is STILL a draft!
