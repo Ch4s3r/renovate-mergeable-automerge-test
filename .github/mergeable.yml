@@ -2,17 +2,7 @@ version: 2
 mergeable:
   - when: pull_request.*
     name: 'Single commit with mergeable@test email'
-    filter:
-      - do: payload
-        pull_request:
-          commits:
-            must_include:
-              regex: '^1$'
     validate:
       - do: commit
         message:
-          regex: '^mergeable@test$'
-          message_type: author_email
-    pass:
-      - do: merge
-        merge_method: merge
+            regex: '^(AB#[0-9]{1,})' #check if all commit messages begin with an AzDO Work Item
