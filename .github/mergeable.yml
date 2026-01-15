@@ -1,10 +1,16 @@
 version: 2
 mergeable:
   - when: pull_request.*
+    name: 'Single commit with mergeable@test email'
     validate:
-      - do: title
-        must_exclude:
-          regex: ^\[WIP\]
-      - do: label
-        must_exclude:
-          regex: 'wip'
+      - do: payload
+        pull_request:
+          commits: 1
+      - do: commit
+        must_include:
+          author:
+            email:
+              regex: '^mergeable@test$'
+    pass:
+      - do: merge
+        merge_method: merge
