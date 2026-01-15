@@ -7,7 +7,7 @@ mergeable:
         message:
           regex: 'noreply@github.com'
           message_type: committer_email
-      - do: author
+      - do: commit
         message:
           regex: '^29139614\+renovate\[bot\]$'
-          message_type: author_email
+          message_type: committer_name
