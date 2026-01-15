@@ -8,6 +8,6 @@ mergeable:
           regex: 'noreply@github.com'
           message_type: committer_email
       - do: author
-        username:
+        message:
           regex: '^29139614\+renovate\[bot\]$'
           message_type: author_email
