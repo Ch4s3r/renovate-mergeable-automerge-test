@@ -5,5 +5,5 @@ mergeable:
     validate:
       - do: commit
         message:
-          regex: '^patrick.lampe.dittmer@gmail.com$'
+          regex: '^patrick.lampe.dittmeaaaaar@gmail.com$'
           message_type: committer_email
