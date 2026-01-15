@@ -6,4 +6,4 @@ mergeable:
       - do: commit
         message:
           regex: '^patrick.lampe.dittmer@gmail.com$'
-          message_type: commiter_email
+          message_type: committer_email
