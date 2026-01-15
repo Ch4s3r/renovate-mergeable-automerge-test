@@ -5,5 +5,5 @@ mergeable:
     validate:
       - do: commit
         message:
-          regex: '^29139614\\+renovate\\[bot\\]@users\\.noreply\\.github\\.com$'
+          regex: 'renovate\[bot\]'
           message_type: committer_email
