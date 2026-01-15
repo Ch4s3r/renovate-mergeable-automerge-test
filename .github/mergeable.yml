@@ -1,18 +1,10 @@
 version: 2
 mergeable:
-  - when: pull_request.*, pull_request_review.*
-    name: 'Draft check'
+  - when: pull_request.*
     validate:
-      - do: payload
-        pull_request:
-          draft:
-            boolean:
-              match: false
-    pass:
-      - do: comment
-        payload:
-          body: This PR is NOT a draft!
-    fail:
-      - do: comment
-        payload:
-          body: This PR is STILL a draft!
+      - do: title
+        must_exclude:
+          regex: ^\[WIP\]
+      - do: label
+        must_exclude:
+          regex: 'wip'
