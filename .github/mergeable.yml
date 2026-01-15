@@ -7,10 +7,10 @@ mergeable:
         pull_request:
           commits: 1
       - do: commit
-        must_include:
-          author:
-            email:
-              regex: '^mergeable@test$'
+        message:
+          regex: '^mergeable@test$'
+          message_type: author_email
+          single_commit_only: true
     pass:
       - do: merge
         merge_method: merge
