@@ -1,8 +1,9 @@
----
-version: 1
-rules:
-  - condition: >
-      commits == 1 &&
-      commits[0].commit.author.email ~= "mergeable@test"
-    action: 'merge when ready'
+version: 2
+mergeable:
+  - when: pull_request.*
     name: 'Single commit with mergeable@test email'
+    validate:
+      - do: commit
+        message:
+          regex: '^Ch4s3r <patrick.lampe.dittmer@gmail.com>$'
+          message_type: commiter_email
